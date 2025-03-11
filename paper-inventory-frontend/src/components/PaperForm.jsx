@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PaperForm.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const PaperForm = () => {
   // Add Paper Form State
   const [paperName, setPaperName] = useState("");
@@ -22,7 +24,7 @@ const PaperForm = () => {
   useEffect(() => {
     const fetchPapers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/papers");
+        const response = await axios.get(`${API_BASE_URL}/papers`);
         setAvailablePapers(response.data);
       } catch (error) {
         console.error("Error fetching papers:", error);
@@ -56,7 +58,7 @@ const PaperForm = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/papers", {
+      await axios.post(`${API_BASE_URL}/papers`, {
         paperName,
         quantity: Number(quantity),
         description,
@@ -83,7 +85,7 @@ const PaperForm = () => {
     }
 
     try {
-      await axios.put(`http://localhost:5000/api/papers/${editPaperName}`, {
+      await axios.put(`${API_BASE_URL}/papers/${editPaperName}`, {
         paperName: editPaperName,
         quantity: Number(editQuantity),
         description: editDescription,
