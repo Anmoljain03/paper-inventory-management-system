@@ -3,8 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 
-const paperRoutes = require('./routes/paperRoutes');
-const assignedPaperRoutes = require('./routes/assignedPaperRoutes');
+const paperRoutes = require("./routes/paperRoutes");
+const assignedPaperRoutes = require("./routes/assignedPaperRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,13 +13,19 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Connect to DB
-connectDB(); 
+// Connect to Database
+connectDB();
 
-// Routes
+// ✅ Root Route (To prevent 404 on backend URL)
+app.get("/", (req, res) => {
+    res.send("Backend is running successfully on Render!");
+});
+
+// API Routes
 app.use("/api/papers", paperRoutes);
-app.use('/api/assignedPapers', assignedPaperRoutes);
+app.use("/api/assignedPapers", assignedPaperRoutes);
 
+// Start Server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on https://paper-inventory-management-backend.onrender.com/`);
 });
