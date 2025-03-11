@@ -1,0 +1,158 @@
+/* Container Styling */
+.paper-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #f0f4f8;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  transition: all 0.3s ease;
+  animation: fadeIn 1s ease-in;
+}
+
+.paper-form-container:hover {
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Styling */
+.paper-form-container h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
+}
+
+/* Form Styling */
+.paper-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Input Styling */
+.paper-form input, 
+.paper-form select {
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Dropdown Styling */
+.paper-form select {
+  appearance: none; /* Remove default browser styling */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="gray"><path d="M7 10l5 5 5-5z"></path></svg>'); 
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+/* Hover & Focus Effects */
+.paper-form input:focus, 
+.paper-form select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0px 3px 6px rgba(52, 152, 219, 0.5);
+}
+
+/* Button Styling */
+.paper-form button {
+  padding: 14px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.paper-form button:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+}
+
+.paper-form button:active {
+  transform: translateY(1px);
+}
+
+/* Message Styling */
+.message {
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 600;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.message.success {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.message.error {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Keyframes for message sliding animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .paper-form-container {
+    padding: 20px;
+    max-width: 100%;
+    margin: 30px auto;
+  }
+
+  .paper-form-container h2 {
+    font-size: 1.8rem; /* Adjust font size for smaller screens */
+  }
+
+  .paper-form input, .paper-form select, .paper-form button {
+    font-size: 1rem; /* Adjust font size of input, select, and button */
+  }
+
+  .message {
+    font-size: 1rem; /* Adjust font size for message */
+  }
+}

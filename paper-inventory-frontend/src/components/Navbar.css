@@ -1,0 +1,109 @@
+/* Navbar Container */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #f8f9fa;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Link Styling */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+/* Hover Effect */
+.nav-links a:hover {
+  background-color: #007bff;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Hamburger Icon for Mobile */
+.hamburger-icon {
+  display: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Hide navbar links by default */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  /* Hamburger icon will be visible on smaller screens */
+  .hamburger-icon {
+    display: block;
+  }
+
+  /* Show the nav links when the menu is toggled */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Adjust navbar styling */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+  
+  /* Adjust links appearance */
+  .nav-links a {
+    display: block;
+    text-align: left;
+    padding: 12px;
+    width: 100%;
+  }
+
+  /* Background overlay when menu is active */
+  .navbar.active .nav-links {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+  }
+}

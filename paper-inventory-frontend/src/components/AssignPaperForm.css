@@ -1,0 +1,273 @@
+/* 🌟 Container Styling */
+.assign-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 550px;
+  transition: all 0.3s ease;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.assign-container:hover {
+  box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* 🎬 Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔹 Header Styling */
+.assign-container h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
+}
+
+/* 🔹 Form Styling */
+.assign-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+/* 🔹 Input Fields */
+.assign-form input,
+.assign-form textarea,
+.assign-form select {
+  padding: 14px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Dropdown (Select) Styling */
+.assign-form select {
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  padding-right: 40px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="%23007bff" d="M7 10l5 5 5-5H7z"/></svg>') no-repeat right 12px center;
+  background-size: 15px;
+}
+
+/* 🔹 Focus Effects */
+.assign-form input:focus,
+.assign-form textarea:focus,
+.assign-form select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0px 3px 6px rgba(52, 152, 219, 0.5);
+}
+
+/* 🔹 Styling for Textarea */
+.assign-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* 🔥 Button Styling */
+.assign-button {
+  padding: 14px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.assign-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+}
+
+.assign-button:active {
+  transform: translateY(1px);
+}
+
+/* ✅ Message Styling */
+.message {
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 600;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.message.success {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.message.error {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* 🎬 Message Sliding Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 📌 Available Papers Section */
+.available-papers {
+  margin-top: 25px;
+  width: 100%;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.available-papers:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.available-papers h3 {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.paper-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+/* 📌 Scrollbar for Available Papers */
+.paper-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.paper-list::-webkit-scrollbar-thumb {
+  background-color: #3498db;
+  border-radius: 10px;
+}
+
+.paper-item {
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.paper-item:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.02);
+}
+
+/* 📌 Mobile Responsiveness */
+@media (max-width: 768px) {
+  .assign-container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .assign-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .assign-form input,
+  .assign-form textarea {
+    font-size: 1rem;
+  }
+
+  .assign-button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  /* Mobile Paper List */
+  .available-papers {
+    padding: 10px;
+  }
+
+  .available-papers h3 {
+    font-size: 1.3rem;
+  }
+
+  .paper-item {
+    font-size: 0.9rem;
+  }
+}
+
+/* 📌 Tablet */
+@media (max-width: 1024px) {
+  .assign-container {
+    width: 80%;
+  }
+
+  .assign-form input,
+  .assign-form textarea {
+    font-size: 1.05rem;
+  }
+
+  .assign-button {
+    font-size: 1.05rem;
+  }
+
+  .message {
+    font-size: 1.05rem;
+  }
+}
+
+/* 📌 Large Screen */
+@media (min-width: 1200px) {
+  .assign-container {
+    max-width: 600px;
+    padding: 50px;
+  }
+
+  .assign-button {
+    font-size: 1.2rem;
+    padding: 16px;
+  }
+}

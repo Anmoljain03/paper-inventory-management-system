@@ -1,0 +1,191 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+  }
+  
+  h1, h2, p {
+    color: #333;
+  }
+  
+  /* Home Container */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(45deg, #3498db, #8e44ad); /* New Gradient Background */
+    animation: backgroundChange 8s ease infinite; /* Smooth background animation */
+  }
+  
+  @keyframes backgroundChange {
+    0% {
+      background: linear-gradient(45deg, #3498db, #8e44ad);
+    }
+    50% {
+      background: linear-gradient(45deg, #8e44ad, #3498db);
+    }
+    100% {
+      background: linear-gradient(45deg, #3498db, #8e44ad);
+    }
+  }
+  
+  /* Header Styling */
+  .header {
+    margin-top: 50px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    animation: fadeIn 2s ease-out;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 10px;
+    animation: fadeIn 3s ease-out;
+  }
+  
+  /* Content Section */
+  .content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+    width: 80%;
+    max-width: 1000px;
+  }
+  
+  /* Image Styling */
+  .image-container {
+    flex: 1;
+    margin-right: 30px;
+    animation: slideInLeft 1s ease-out;
+  }
+  
+  .paper-image {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Info Styling */
+  .info {
+    flex: 1;
+    animation: slideInRight 1s ease-out;
+  }
+  
+  .info h2 {
+    font-size: 1.75rem;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ddd;
+  }
+  
+  .owner-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .owner-name span {
+    color: #89cff0;
+    font-weight: 900;
+    font-size: larger;
+  }
+  
+  /* New: Owner's Contact Info */
+  .owner-contact {
+    font-size: 1.1rem;
+    color: #3498db;
+    margin-top: 20px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  /* Animation Keyframes */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .image-container {
+      margin-bottom: 20px;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .subtitle {
+      font-size: 1rem;
+    }
+  
+    .info h2 {
+      font-size: 1.5rem;
+    }
+  
+    .info p {
+      font-size: 1rem;
+    }
+  
+    .owner-contact {
+      font-size: 1rem;
+    }
+  }
+  
