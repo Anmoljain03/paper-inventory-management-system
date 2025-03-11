@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./AssignPaperForm.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; // Use environment variable
+
 const AssignPaperForm = ({ editingAssignment, setEditingAssignment }) => {
   const [paperName, setPaperName] = useState("");
   const [printerName, setPrinterName] = useState("");
@@ -15,7 +17,7 @@ const AssignPaperForm = ({ editingAssignment, setEditingAssignment }) => {
   useEffect(() => {
     const fetchPapers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/papers");
+        const response = await axios.get(`${API_BASE_URL}/papers`);
         setAvailablePapers(response.data);
       } catch (error) {
         console.error("Error fetching available papers:", error);
@@ -61,13 +63,13 @@ const AssignPaperForm = ({ editingAssignment, setEditingAssignment }) => {
       if (editingAssignment) {
         // ✅ Correct API route for updating assigned paper
         await axios.put(
-          `http://localhost:5000/api/assignedPapers/assigned/${editingAssignment._id}`,
+          `${API_BASE_URL}/assignedPapers/assigned/${editingAssignment._id}`,
           paperData
         );
         setMessage("Paper assignment updated successfully!");
       } else {
         // ✅ Assign new paper
-        await axios.post("http://localhost:5000/api/assignedPapers/assign", paperData);
+        await axios.post(`${API_BASE_URL}/assignedPapers/assign`, paperData);
         setMessage("Paper assigned successfully!");
       }
 
