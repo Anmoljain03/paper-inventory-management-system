@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./AssignedPaperList.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; // Use environment variable
+
 const AssignedPaperList = ({ fetchPapers }) => {
   const [assignedPapers, setAssignedPapers] = useState([]);
 
@@ -12,14 +14,14 @@ const AssignedPaperList = ({ fetchPapers }) => {
   // Fetch assigned papers
   const fetchAssignedPapers = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/assignedPapers");
+      const response = await axios.get(`${API_BASE_URL}/assignedPapers`);
       setAssignedPapers(response.data);
     } catch (error) {
       console.error("Error fetching assigned papers:", error);
     }
   };
 
-  // Delete assigned paper (without updating stock)
+  // Delete assigned paper
   const deleteAssignedPaper = async (paperName) => {
     try {
       const paperToDelete = assignedPapers.find((paper) => paper.paperName === paperName);
@@ -28,8 +30,7 @@ const AssignedPaperList = ({ fetchPapers }) => {
         return;
       }
 
-      // ✅ Delete assigned paper (no stock update)
-      await axios.delete(`http://localhost:5000/api/assignedPapers/assigned/${paperName}`);
+      await axios.delete(`${API_BASE_URL}/assignedPapers/assigned/${paperName}`);
 
       alert("Assigned paper deleted successfully!");
       fetchAssignedPapers();
