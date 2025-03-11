@@ -8,13 +8,15 @@ import AssignedPapers from "./components/AssignedPaperList";
 import AssignPaperForm from "./components/AssignPaperForm";
 import PaperForm from "./components/PaperForm";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function App() {
   const [papers, setPapers] = useState([]); // Store available papers
 
   // Function to fetch available papers
   const fetchPapers = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/papers");
+      const response = await axios.get(`${API_BASE_URL}/papers`);
       setPapers(response.data);
     } catch (error) {
       console.error("Error fetching papers:", error);
