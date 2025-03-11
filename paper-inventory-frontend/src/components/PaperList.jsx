@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./PaperList.css"; // Import styles
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const PaperList = () => {
   const [papers, setPapers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -16,7 +18,7 @@ const PaperList = () => {
     setLoading(true);
     setError("");
     try {
-      const response = await axios.get("http://localhost:5000/api/papers");
+      const response = await axios.get(`${API_BASE_URL}/papers`);
       setPapers(response.data);
     } catch (error) {
       console.error("Error fetching papers:", error);
@@ -30,7 +32,7 @@ const PaperList = () => {
     if (!window.confirm(`Are you sure you want to delete ${paperName}?`)) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/papers/${paperName}`);
+      await axios.delete(`${API_BASE_URL}/papers/${paperName}`);
       setPapers((prevPapers) => prevPapers.filter((paper) => paper.paperName !== paperName));
       alert("Paper deleted successfully!");
     } catch (error) {
@@ -55,7 +57,7 @@ const PaperList = () => {
     }
 
     try {
-      const response = await axios.put(`http://localhost:5000/api/papers/${paperName}`, {
+      const response = await axios.put(`${API_BASE_URL}/papers/${paperName}`, {
         quantity: additionalQuantity, // Send additional quantity, not replacement
       });
 
